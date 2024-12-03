@@ -4,7 +4,7 @@ pipeline {
         nodejs 'nodejs21'
     }
     environment {
-        // semodifica el pat para incluir la instalación de Node.js configurada en Tool Configuration
+        // semodifica el path para incluir la instalación de Node.js configurada en Tool Configuration
         NODE_HOME = tool name: 'nodejs21'
         PATH = "${NODE_HOME}/bin:${env.PATH}"
     }
