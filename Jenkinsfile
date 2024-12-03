@@ -22,5 +22,16 @@ pipeline {
                 sh 'npm test'
             }
         }
+        stage('Run') {
+            steps {
+                sh ' -k 3000/tcp || true'
+                sh 'npm run'
+            }
+        }
+        stage('ServiceTest') {
+            steps {
+                sh 'curl http://localhost:3000' 
+            }
+        }
     }
 }
