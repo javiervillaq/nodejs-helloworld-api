@@ -33,9 +33,11 @@ pipeline {
                 '''
             }
         }
-        stage('ServiceTest') {
+        stage('DeployTest') {
             steps {
-                sh 'curl http://localhost:3000' 
+                sh 'curl http://localhost:3000'
+                sh 'fuser -k 3000/tcp || true'
+
             }
         }
     }
