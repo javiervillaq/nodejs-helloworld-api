@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Run') {
             steps {
-                sh ' -k 3000/tcp || true'
+                sh 'fuser -k 3000/tcp || true'
                 sh 'npm run'
             }
         }
