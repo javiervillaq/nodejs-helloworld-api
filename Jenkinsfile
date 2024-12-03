@@ -25,7 +25,10 @@ pipeline {
         stage('Run') {
             steps {
                 sh 'fuser -k 3000/tcp || true'
-                sh 'npm run'
+                sh 'npm start &
+                    sleep 1
+                    echo $! > .pidfile
+                    set +x'
             }
         }
         stage('ServiceTest') {
